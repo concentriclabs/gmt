@@ -257,6 +257,12 @@ and use that as the independent variable for filtering.</p>
 </div>
 <div class="section" id="required-arguments">
 <h2>Required Arguments<a class="headerlink" href="#required-arguments" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt><em>table</em></dt><dd><p>One or more ASCII (or binary, see <strong>-bi</strong>[<em>ncols</em>][<em>type</em>]) data
+table file(s) holding a number of data columns. If no tables are given
+then we read from standard input.  </p>
+</dd>
+</dl>
 <dl id="f">
 <dt><strong>-F</strong><strong>type</strong><em>width</em>[<em>modifier</em>]</dt><dd><p>Sets the filter <strong>type</strong>. Choose among convolution and non-convolution
 filters. Append the filter code followed by the full filter
@@ -296,12 +302,6 @@ segments.</p>
 </div>
 <div class="section" id="optional-arguments">
 <h2>Optional Arguments<a class="headerlink" href="#optional-arguments" title="Permalink to this headline">¶</a></h2>
-<dl class="simple">
-<dt><em>table</em></dt><dd><p>One or more ASCII (or binary, see <strong>-bi</strong>[<em>ncols</em>][<em>type</em>]) data
-table file(s) holding a number of data columns. If no tables are given
-then we read from standard input.  </p>
-</dd>
-</dl>
 <dl class="simple" id="d">
 <dt><strong>-D</strong><em>increment</em></dt><dd><p><em>increment</em> is used when series is NOT equidistantly sampled. Then
 <em>increment</em> will be the abscissae resolution, i.e., all abscissae
@@ -341,7 +341,7 @@ not check Symmetry].</p>
 For details on array creation, see <a class="reference internal" href="#generate-1d-array">Generate 1D Array</a>.</p>
 </dd>
 </dl>
-<dl class="simple" id="v">
+<span class="target" id="v"></span><dl class="simple">
 <dt><strong>-V</strong>[<em>level</em>] <a class="reference internal" href="gmt.html#v-full"><span class="std std-ref">(more …)</span></a></dt><dd><p>Select verbosity level [<strong>w</strong>].  </p>
 </dd>
 </dl>
@@ -472,6 +472,17 @@ array where <em>inc</em> can be 1 (every magnitude), 2, (1, 2, 5 times magnitude
 <span class="m">10000</span>
 </pre></div>
 </div>
+<p>Append <strong>+i</strong> if <em>inc</em> is a fractional number and it is cleaner to give its reciprocal
+value instead.  To set up times for a 24-frames per second animation lasting 1 minute, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmt math -o0 -T0/60/24+i <span class="nv">T</span> <span class="o">=</span>
+<span class="m">0</span>
+<span class="m">0</span>.0416666666667
+<span class="m">0</span>.0833333333333
+<span class="m">0</span>.125
+<span class="m">0</span>.166666666667
+...
+</pre></div>
+</div>
 <p>Append <strong>+n</strong> if <em>inc</em> is meant to indicate the <em>number</em> of equidistant coordinates
 instead.  To have exactly 5 equidistant values from 3.44 and 7.82, run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmt math -o0 -T3.44/7.82/5+n <span class="nv">T</span> <span class="o">=</span>
@@ -582,7 +593,7 @@ and not shorten the track, and add the distances to the file, use</p>
         
         &copy; Copyright 2020, The GMT Team.
       <span class="lastupdated">
-        Last updated on Sep 20, 2020.
+        Last updated on Nov 22, 2020.
       </span>
 
     </p>
